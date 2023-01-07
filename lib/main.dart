@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nike_store/utilities/colors.dart';
+import 'package:nike_store/view/widgets/app_button.dart';
+import 'package:nike_store/view/widgets/app_textfield.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColorScheme.white,
       appBar: AppBar(
         title: Text(widget.title),
       ),
@@ -54,6 +58,17 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            const AppTextField(),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: AppButton1(
+                textColor: AppColorScheme.darkAsh,
+                buttonColor: AppColorScheme.orange,
+              ),
+            ),
+            const AppButton2(
+                textColor: AppColorScheme.white,
+                buttonColor: AppColorScheme.primaryBlue)
           ],
         ),
       ),
