@@ -1,47 +1,46 @@
 import 'package:flutter/material.dart';
 
-import 'package:nike_store/utilities/dimensions.dart';
-import 'package:nike_store/utilities/text_style.dart';
+import '../../utilities/dimensions.dart';
+import '../../utilities/text_style.dart';
 
-class AppButton1 extends StatelessWidget {
+class LongButton extends StatelessWidget {
   final Color textColor;
   final Color buttonColor;
+  final String text;
+  final VoidCallback onPressed;
 
-  const AppButton1({
+  const LongButton({
     super.key,
     required this.textColor,
     required this.buttonColor,
+    required this.text,
+    required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: (() => debugPrint('Style')),
-      child: Container(
-        height: AppDimension.height(context) * 0.06,
-        padding: EdgeInsets.symmetric(
-            horizontal: AppDimension.width(context) * 0.05, vertical: 5),
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(12)),
-          color: buttonColor,
-        ),
-        child: Center(
-          child: Text(
-            'data',
-            style:
-                TextScheme.primaryParagraphPoppins.copyWith(color: textColor),
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(12)),
           ),
-        ),
+          fixedSize: Size(AppDimension.width(context) * 0.9,
+              AppDimension.height(context) * 0.07),
+          backgroundColor: buttonColor),
+      onPressed: onPressed,
+      child: Text(
+        text,
+        style: AppTextScheme.primaryParagraphRaleway.copyWith(color: textColor),
       ),
     );
   }
 }
 
-class AppButton2 extends StatelessWidget {
+class ShortButton extends StatelessWidget {
   final Color textColor;
   final Color buttonColor;
 
-  const AppButton2({
+  const ShortButton({
     super.key,
     required this.textColor,
     required this.buttonColor,
@@ -49,25 +48,19 @@ class AppButton2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: (() => debugPrint('Style')),
-      child: Container(
-        height: AppDimension.height(context) * 0.06,
-        width: AppDimension.width(context) * 0.55,
-        padding: EdgeInsets.symmetric(
-            horizontal: AppDimension.width(context) * 0.05, vertical: 5),
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(12)),
-          color: buttonColor,
-        ),
-        child: Center(
-          child: Text(
-            'data',
-            style:
-                TextScheme.primaryParagraphPoppins.copyWith(color: textColor),
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(12)),
           ),
-        ),
+          fixedSize: Size(AppDimension.width(context) * 0.55,
+              AppDimension.height(context) * 0.07),
+          backgroundColor: buttonColor),
+      child: Text(
+        'data',
+        style: AppTextScheme.primaryParagraphRaleway.copyWith(color: textColor),
       ),
+      onPressed: () {},
     );
   }
 }

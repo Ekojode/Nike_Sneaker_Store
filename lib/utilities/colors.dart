@@ -9,5 +9,7 @@ class AppColorScheme {
   static const Color darkAsh = Color(0xff2b2b2b);
   static const Color white = Colors.white;
   static const Color black = Color.fromARGB(255, 0, 0, 0);
+  static const Color secondaryBlack = Color(0xff1a2530);
   static const Color orange = Color(0xffff4c24);
+  static const Color yellow = Color(0xffFFB21A);
 }
